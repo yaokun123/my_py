@@ -2,7 +2,7 @@
 import socket
 
 # 1、买手机
-phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # print phone     # <socket._socketobject object at 0x10bdd78a0>
 
 
