@@ -40,7 +40,7 @@ while True:     # 链接循环
         }
         header_json = json.dumps(header_dic)
 
-        header_bytes = header_json.encode('utf-8')
+        header_bytes = header_json
 
         # 第二步：先发送报头的长度
         conn.send(struct.pack('i', len(header_bytes)))

@@ -16,7 +16,7 @@ while True:
 
     if not cmd:
         continue
-    phone.send(cmd.encode('utf-8'))
+    phone.send(cmd)
 
     # 拿到命令结果并打印
 
@@ -28,7 +28,7 @@ while True:
     header_byte = phone.recv(header_size)
 
     # 第三步：从报头中解析出对真实数据的描述信息
-    header_json = header_byte.decode('utf-8')
+    header_json = header_byte
     header_dic = json.loads(header_json)
     print header_dic
     total_size = header_dic['total_size']
