@@ -20,7 +20,7 @@ while True:     # 链接循环
         cmd = conn.recv(1024)
         if not cmd:
             break
-        print('这是客户端的数据', cmd)
+        print '这是客户端的数据', cmd
 
         # 2、执行命令，拿到结果
         obj = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -29,7 +29,7 @@ while True:     # 链接循环
         stderr = obj.stderr.read()
 
         # 3、把命令的结果返回给客户端
-        conn.send(stdout + stderr)  # bug-1:这是一个可以优化的地方
+        conn.send(stdout + stderr)  # bug-1:这是一个可以优化的地方（用粘包来优化）
 
     # 6、挂电话
     conn.close()

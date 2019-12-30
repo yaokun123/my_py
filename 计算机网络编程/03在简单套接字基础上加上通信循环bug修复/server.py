@@ -19,7 +19,7 @@ while True:
     # server-bug:如果客户端被干掉，linux会一直接受到空数据,window会抛异常（try...catch）
     if not data:
         break
-    print('这是客户端的数据', data)
+    print '这是客户端的数据', data
 
     conn.send(data.upper())
 

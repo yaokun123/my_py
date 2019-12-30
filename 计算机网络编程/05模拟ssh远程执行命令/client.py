@@ -17,7 +17,7 @@ while True:
     phone.send(cmd.encode('utf-8'))
 
     # 拿到命令结果并打印
-    data = phone.recv(1024)    # 1024是一个坑
+    data = phone.recv(1024)    # 1024是一个坑，如果服务端返回的数据大于1024个字节怎么办（比如ifconfig）
     print data
 
 # 4、关机
