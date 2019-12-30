@@ -18,8 +18,7 @@ while True:     # 链接循环
 
         if not data:
             break
-        print('这是客户端的数据', data)
-
+        print '这是客户端的数据', data
 
         conn.send(data.upper())
 
