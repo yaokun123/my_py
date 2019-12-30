@@ -15,7 +15,7 @@ while True:
 
     if not cmd:
         continue
-    phone.send(cmd.encode('utf-8'))
+    phone.send(cmd)
 
     # 拿到命令结果并打印
 

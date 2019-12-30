@@ -32,7 +32,7 @@ while True:     # 链接循环
 
         # 第一步：制作固定长度的报头
         total_size = len(stdout) + len(stderr)
-        header = struct.pack('i', total_size)
+        header = struct.pack('i', total_size)   # 这里打包有一个限制，如果total_size过大会有问题（在下一节解决这个问题）
 
         # 第二步：把报头（固定长度）发送给客户端
         conn.send(header)
