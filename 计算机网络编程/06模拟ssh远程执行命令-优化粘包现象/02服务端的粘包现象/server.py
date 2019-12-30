@@ -27,7 +27,7 @@ while True:     # 链接循环
         stdout = obj.stdout.read()
         stderr = obj.stderr.read()
 
-        print(len(stdout) + len(stderr))
+        print len(stdout) + len(stderr)
 
         # 3、把命令的结果返回给客户端
         conn.send(stdout + stderr)  # bug-1:这是一个可以优化的地方
