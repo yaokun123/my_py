@@ -21,7 +21,6 @@ while True:
         break
     print('这是客户端的数据', data)
 
-
     conn.send(data.upper())
 
 # 6、挂电话
