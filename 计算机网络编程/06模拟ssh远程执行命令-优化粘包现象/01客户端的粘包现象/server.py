@@ -15,7 +15,7 @@ conn, client_addr = phone.accept()
 # server端这里接受一次，但是将client的两个包都读取出来了
 data = conn.recv(1024)
 
-print(data)
+print '第一次接受', data
 
 conn.close()
 
