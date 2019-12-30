@@ -10,10 +10,9 @@ phone.listen(5)
 
 conn, client_addr = phone.accept()
 
-while True:     # 通信循环
+while True:     # 加上通信循环
     data = conn.recv(1024)
-    print('这是客户端的数据', data)
-
+    print '这是客户端的数据', data
 
     conn.send(data.upper())
 
