@@ -11,7 +11,7 @@ phone.connect(('127.0.0.1', 8080))
 
 
 # 3、发、收消息
-phone.send('hello'.encode('utf-8'))
+phone.send('hello')
 
 data = phone.recv(1024)
 print data

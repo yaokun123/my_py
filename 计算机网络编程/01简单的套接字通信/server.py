@@ -20,7 +20,7 @@ conn, client_addr = phone.accept()
 
 # 5、收、发消息
 data = conn.recv(1024)     # 1、单位byte 2、1024代表最大接受1024个bytes
-print('这是客户端的数据', data)
+print '这是客户端的数据', data
 
 
 conn.send(data.upper())
