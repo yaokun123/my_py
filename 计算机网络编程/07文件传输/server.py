@@ -3,6 +3,9 @@ import socket
 import os
 import struct
 import json
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 phone = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,7 +29,7 @@ while True:     # 链接循环
             break
 
         # 2、解析命令，提取相应命令参数
-        cmds = res.decode('utf-8').split()     # ['get','a.txt']
+        cmds = res.split()     # ['get','a.txt']
         filename = cmds[1]
 
         # 3、以读的方式打开a.txt，读取文件内容发送给客户端
@@ -35,11 +38,9 @@ while True:     # 链接循环
         header_dic = {
             'filename': filename,
             'md5': 'xxxxxxxx',
-            'total_size': os.path.getsize('%s/%s' % (share_dir, filename.encode('utf-8')))
+            'total_size': os.path.getsize('%s/%s' % (share_dir, filename))
         }
-        header_json = json.dumps(header_dic)
-
-        header_bytes = header_json.encode('utf-8')
+        header_bytes = json.dumps(header_dic)
 
         # 第二步：先发送报头的长度
         conn.send(struct.pack('i', len(header_bytes)))
@@ -48,7 +49,7 @@ while True:     # 链接循环
         conn.send(header_bytes)
 
         # 第四步：再发送真实数据
-        with open(os.path.join(share_dir, filename.encode('utf-8')), 'rb') as f:
+        with open(os.path.join(share_dir, filename), 'rb') as f:
             # conn.send(f.read())
             for line in f:
                 conn.send(line)
