@@ -60,9 +60,9 @@ class Demo():
             # 单行回复
             print res1[1:]
         elif op == "$":
-            #多行字符串
+            # 多行字符串
             length = res1[1:]
-            print length + ":" +res[1]
+            print length + ":" + res[1]
 
 
 
