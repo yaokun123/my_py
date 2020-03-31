@@ -29,7 +29,7 @@ class Demo():
         self.socket.send(commondStr)
 
         data = self.socket.recv(1024)
-        print data
+        self.decode(data)
     def get(self,key):
         commondList = []
         commondList.append('*2')
@@ -47,10 +47,41 @@ class Demo():
         self.socket.send(commondStr)
 
         data = self.socket.recv(1024)
-        print data
+        self.decode(data)
+
+    def decode(self,data):
+        # 先读取一个字节
+        res = data.split("\r\n")
+        res1 = res[0]
+
+        op = res1[0:1]
+
+        if op == "+":
+            # 单行回复
+            print res1[1:]
+        elif op == "$":
+            #多行字符串
+            length = res1[1:]
+            print length + ":" +res[1]
+
+
 
 
 
 if __name__ == "__main__":
-    # Demo().set('name', 'test1')
-    Demo().get('name')
+    while True:
+        cmd = raw_input('>>:')
+
+        if not cmd:
+            continue
+
+        cmds = cmd.split(' ')
+
+        if cmds[0].upper() == 'SET' and len(cmds) == 3:
+            Demo().set(cmds[1], cmds[2])
+        elif cmds[0].upper() == 'GET' and len(cmds) == 2:
+            Demo().get(cmds[1])
+        elif cmds[0].upper() == 'EXIT':
+            break
+        else:
+            print '命令暂不支持'
