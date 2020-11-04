@@ -17,6 +17,8 @@ for num in nums:
 
 print("使用迭代器")
 # 使用迭代器
+
+
 class Fib(object):
     def __init__(self, all_num):
         self.all_num = all_num
