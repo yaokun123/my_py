@@ -41,3 +41,6 @@ class Fib(object):
 fibo = Fib(10)
 for num in fibo:
     print num
+
+# list()和tuple()底层就是使用迭代器
+
