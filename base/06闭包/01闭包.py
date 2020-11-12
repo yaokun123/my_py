@@ -121,4 +121,4 @@ line_6_2(0)
 line_6_2(1)
 line_6_2(2)
 
-# 闭包修改变量使用 nonlocal关键字
+# 闭包修改变量使用 nonlocal关键字（python3）
