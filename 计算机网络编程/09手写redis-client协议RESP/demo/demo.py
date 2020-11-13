@@ -2,54 +2,57 @@
 
 import socket
 
-class Demo():
+
+class Demo(object):
     def __init__(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect(('192.168.109.245', 6379))
         # self.socket.connect(('127.0.0.1', 6379))
 
     def set(self, key, val):
-        commondList = []
-        commondList.append('*3')
+        commond_list = list()
+        commond_list.append('*3')
 
-        commondList.append('$3')
-        commondList.append('SET')
+        commond_list.append('$3')
+        commond_list.append('SET')
 
-        keyLength = len(key)
-        commondList.append('$'+str(keyLength))
-        commondList.append(key)
+        key_length = len(key)
+        commond_list.append('$'+str(key_length))
+        commond_list.append(key)
 
-        valLength = len(val)
-        commondList.append('$'+str(valLength))
-        commondList.append(val)
+        val_length = len(val)
+        commond_list.append('$'+str(val_length))
+        commond_list.append(val)
 
-        commondStr = "\r\n".join(commondList)
-        commondStr += "\r\n"
+        commond_str = "\r\n".join(commond_list)
+        commond_str += "\r\n"
 
-        self.socket.send(commondStr)
-
-        data = self.socket.recv(1024)
-        self.decode(data)
-    def get(self,key):
-        commondList = []
-        commondList.append('*2')
-
-        commondList.append('$3')
-        commondList.append('GET')
-
-        keyLength = len(key)
-        commondList.append('$' + str(keyLength))
-        commondList.append(key)
-
-        commondStr = "\r\n".join(commondList)
-        commondStr += "\r\n"
-
-        self.socket.send(commondStr)
+        self.socket.send(commond_str)
 
         data = self.socket.recv(1024)
-        self.decode(data)
+        self.decode_resp(data)
 
-    def decode(self,data):
+    def get(self, key):
+        commond_list = list()
+        commond_list.append('*2')
+
+        commond_list.append('$3')
+        commond_list.append('GET')
+
+        key_length = len(key)
+        commond_list.append('$' + str(key_length))
+        commond_list.append(key)
+
+        commond_str = "\r\n".join(commond_list)
+        commond_str += "\r\n"
+
+        self.socket.send(commond_str)
+
+        data = self.socket.recv(1024)
+        self.decode_resp(data)
+
+    @staticmethod
+    def decode_resp(data):
         # 先读取一个字节
         res = data.split("\r\n")
         res1 = res[0]
@@ -63,9 +66,6 @@ class Demo():
             # 多行字符串
             length = res1[1:]
             print length + ":" + res[1]
-
-
-
 
 
 if __name__ == "__main__":
