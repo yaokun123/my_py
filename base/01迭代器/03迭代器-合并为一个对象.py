@@ -37,8 +37,17 @@ for name in classmate:
     print(name)
     time.sleep(1)
 
-
 # 一个对象是迭代器那么它一定可以迭代
 # 一个对象可以迭代，不一定是迭代器
+print(isinstance(classmate, Iterable))
+print(isinstance(classmate, Iterator))
+
+
+# 迭代器呢，一次for循环就没有了，而可迭代对象呢，任你for一万次都会输出
+print('-------------')
+for name in classmate:
+    print(name)
+    time.sleep(1)
+
 # range(10)返回的是一个列表，占用空间大，存储的是数据
 # xrange(10)返回的是一个迭代器，占用空间较小，存储的是生成数据的方式，而不是数据
