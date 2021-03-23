@@ -1,6 +1,8 @@
 # coding:utf-8
 import random
 
+import heapq   # 自带堆排序
+
 
 """
 堆排序前传：二叉树的顺序存储方式
