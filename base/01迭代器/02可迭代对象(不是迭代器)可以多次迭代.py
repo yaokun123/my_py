@@ -1,6 +1,5 @@
 # coding:utf-8
 import time
-from collections import Iterable,Iterator
 
 
 class Classmate(object):
@@ -27,8 +26,7 @@ class ClassIterator(object):
 
     def next(self):
         if self.current_num >= len(self.obj.names):
-            # 抛出异常通知迭代结束，for循环自动就停止了
-            raise StopIteration
+            raise StopIteration  # 抛出异常通知迭代结束，for循环自动就停止了
         res = self.obj.names[self.current_num]
         self.current_num += 1
         return res
@@ -43,18 +41,13 @@ classmate.add('test1')
 classmate.add('test2')
 classmate.add('test3')
 
-print("判断classmate是否是可迭代对象：", isinstance(classmate, Iterable))
-
-# iter()方法会获取到迭代器
-classmate_iterator = iter(classmate)
-
-print("判断classmate_iterator是否是迭代器：", isinstance(classmate_iterator, Iterator))
-
-# next()方法会调用迭代器的next()方法
-print(next(classmate_iterator))
-
-print("============开始迭代===============")
 # for一个可迭代对象，会去调用迭代器的next()方法
+for name in classmate:
+    print(name)
+    time.sleep(1)
+
+print "================================================"
+# classmate是可迭代对象（但是不是迭代器），所以可以多次迭代
 for name in classmate:
     print(name)
     time.sleep(1)
