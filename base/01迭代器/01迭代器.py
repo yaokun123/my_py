@@ -35,11 +35,14 @@ classmate.add('test2')
 classmate.add('test3')
 
 print "判断classmate是否是可迭代对象：", isinstance(classmate, Iterable)
+print "判断classmate是否是迭代器:", isinstance(classmate, Iterator)
+print "=============================================="
 
 # iter()方法会获取到迭代器
 classmate_iterator = iter(classmate)
-
+print "classmate的迭代器是classmate_iterator:", classmate_iterator
 print "判断classmate_iterator是否是迭代器：", isinstance(classmate_iterator, Iterator)
+print "=============================================="
 
 # next()方法会调用迭代器的next()方法
 print next(classmate_iterator)
