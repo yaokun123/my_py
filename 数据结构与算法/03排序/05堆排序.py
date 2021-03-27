@@ -34,7 +34,14 @@ import heapq   # 自带堆排序
 5、重复步骤3，直到堆变空。
 
 
-时间复杂度O(nlogn)
+时间复杂度：
+最坏情况：O(nlogn)
+平均情况：O(nlogn)
+最好情况：O(nlogn)
+
+空间复杂度：O(1)
+
+稳定性：不稳定
 """
 
 def sift(li, low, high):
