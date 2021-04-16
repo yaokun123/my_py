@@ -74,15 +74,15 @@ def sift(li, low, high):
 def heap_sort(li):
     n = len(li)
 
-    for i in range((n-2)//2,-1,-1):
+    for i in range((n-2)//2, -1, -1):
         # i表示建堆的时候调整的部分的根的下标
-        sift(li, i, n-1)
+        sift(li, i, n-1)    # 这里的high一直是数组的最后一个索引（一个技巧）
 
     # 建堆完成
     print li
 
     # 排序
-    for i in range(n-1,-1,-1):
+    for i in range(n-1, -1, -1):
         # i指向当前堆的最后一个元素
         li[0], li[i] = li[i], li[0]
         sift(li, 0, i-1)
