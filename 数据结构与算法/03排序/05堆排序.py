@@ -44,7 +44,31 @@ import heapq   # 自带堆排序
 稳定性：不稳定
 """
 
+
 def sift(li, low, high):
+    """
+    向下调整（更好理解）
+    :param li: 列表
+    :param low: 堆的根节点位置
+    :param high: 堆的最后一个元素位置
+    :return:
+    """
+    i = low         # 最开始指向根节点
+    j = 2 * i + 1   # 左
+
+    while j <= high:
+        if j+1 <= high and li[j+1] > li[j]:     # 如果右孩子有，且比较大
+            j = j + 1           # j指向右孩子
+
+        if li[j] > li[i]:
+            li[i], li[j] = li[j], li[i]     # 交换一下
+            i = j               # 往下看一层
+            j = 2 * i + 1
+        else:                   # tmp更大，把tmp放到i的位置上
+            break
+
+
+def sift2(li, low, high):
     """
     向下调整
     :param li: 列表
