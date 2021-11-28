@@ -1,5 +1,6 @@
 # coding:utf-8
 
+from collections import Iterator, Iterable
 """
 生成器是一种特殊的迭代器，没有next和__iter__方法
 """
@@ -8,12 +9,21 @@
 生成器的第一种方法（使用较少）
 """
 nums = [x*2 for x in range(10)]
-
+print "使用列表："
 print nums
+print type(nums)
+print "check is Iterable:", isinstance(nums, Iterable)
+print "check is Iterator:", isinstance(nums, Iterator)
+print "=================================================="
 
 # 将[]换为()得到可迭代对象
 nums_2 = (x*2 for x in range(10))
+print "使用元组："
 print nums_2
+print type(nums_2)
+print "check is Iterable:", isinstance(nums_2, Iterable)
+print "check is Iterator:", isinstance(nums_2, Iterator)
+print "=================================================="
 
 
 """
@@ -34,20 +44,24 @@ def fib(n):
     # return 'ok'
     # python3可以return
 
-
+str_1 = ""
 for x in fib(10):
-    print x
+    str_1 += str(x) + ","
+print str_1
+print "=================================================="
 
 obj = fib(10)
+str_2 = ""
 while True:
     try:
         res = next(obj)
-        print res
+        str_2 += str(res) + ","
     except Exception as ret:
         break
         # ret.value
+print str_2
 
-print("====================")
+print "=================================================="
 # send方法，可以传送参数，接受方法：result = yield num
 obj2 = fib(10)
 
