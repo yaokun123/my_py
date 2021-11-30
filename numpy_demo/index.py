@@ -42,14 +42,23 @@ inf(infinity)：比任何浮点数都大
 
 
 数学和统计方法
-sum:求和
-mean:求平均数
-std:求标准差
-var:求方差
-min:求最小值
-max:求最大值
-argmin:求最小值索引
-argmax:求最大值索引
+sum:        求和
+mean:       求平均数
+std:        求标准差
+var:        求方差
+min:        求最小值
+max:        求最大值
+argmin:     求最小值索引
+argmax:     求最大值索引
+
+
+随机数
+rand:       给定形状产生随机数（0到1之间的数）
+randint:    给定形状产生随机整数
+choice:     给定形状产生随机选择
+shuffle:    与random.shuffle相同
+uniform:    给定形状产生随机数组
+
 """
 import numpy as np
 import random
