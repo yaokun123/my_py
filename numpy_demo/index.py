@@ -13,15 +13,43 @@ empty():    根据指定形状和dtype创建空数组（随机值）
 eye():      根据指定边长和dtype创建单位矩阵
 reshape(n,m):  根据给定的维度重新生成数组
 
+
 数组和标量之间的计算：a+1    a*3    1//a    a**0.5    a>5
 同样大小数组之间的运算：a+b    a/b    a**b    a%b    a==b
 一维数组的索引：a[5]
 多维数组的索引：a[2][3] a[2,3](新式写法)
 
+
 一维数组的切片：a[5:8]    a[4:]    a[2:10] = 1
 多维数组的切片：a[1;2,3:4]    a[:,3:5]    a[:,1]
 数组切片与列表切片的不同：数组切片时并不会自动复制（而是创建一个视图），在切片数组上的修改会影响到原数组
         copy()方法可以创建数组的深拷贝
+
+
+布尔型索引：a[a>5]过滤出数组中元素>5的元素a[[True,False,False,True]]
+
+
+花式索引：a[[1,3,4,6,7]]
+
+
+
+
+通用函数：能同时对数组所有元素进行运算的函数
+一元函数：abs,sqrt,exp,log,ceil,floor,rint,trunc,modf,isnan,isinf,cos,sin,tan
+二元函数：add,substract,multiply,divide,power,mod,maximum,mininum
+nan(Not a Number)：不等于任何浮点数(nan != nan)
+inf(infinity)：比任何浮点数都大
+
+
+数学和统计方法
+sum:求和
+mean:求平均数
+std:求标准差
+var:求方差
+min:求最小值
+max:求最大值
+argmin:求最小值索引
+argmax:求最大值索引
 """
 import numpy as np
 import random
@@ -82,8 +110,8 @@ print "================================="
 # 画一下x**2 在-10-10之间的图像
 x = np.linspace(-10, 10, 1000)
 y = x**2
-print x
-print y
+# print x
+# print y
 import matplotlib.pyplot as plt
 plt.plot(x, y)
 plt.show()
