@@ -21,6 +21,8 @@ print a
 
 b = pd.Series([2, 3, 4, 5], index=['a', 'b', 'c', 'd'])
 print b
+print b.index
+print b.values
 # 依然可以通过索引访问
 print b[1]
 
