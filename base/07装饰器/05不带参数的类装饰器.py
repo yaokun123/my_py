@@ -15,6 +15,7 @@ class Logger(object):
         print("before...")
         return self.func(*args, **kwargs)
 
+
 @Logger
 def say():
     print "hello world"
