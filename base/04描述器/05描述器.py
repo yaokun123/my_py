@@ -25,7 +25,7 @@ class TestMain:
 
 if __name__ == '__main__':
     t = TestMain()
-    print t
+    print(t)
     print(t.des)
     print(TestMain.des)
 
