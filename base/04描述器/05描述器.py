@@ -25,12 +25,7 @@ class TestMain:
 
 if __name__ == '__main__':
     t = TestMain()
+    print t
     print(t.des)
     print(TestMain.des)
-
-    # <__main__.TestMain object at 0x0000022563D5D3C8> <class '__main__.TestMain'>
-    # TestDes:__get__
-
-    # None <class '__main__.TestMain'>
-    # TestDes:__get__
 
