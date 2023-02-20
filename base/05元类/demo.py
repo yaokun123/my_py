@@ -3,7 +3,7 @@
 """
 元类实战：ORM
 
-使用过Django ORM的人都知道，有了ORM，使得我们操作数据库，变得异常简单。
+使用过Django ORM的人都知道，有了ORM，使得我们操作数据库，变得简单。
 ORM的一个类(User)，就对应数据库中的一张表。id,name,email,password 就是字段。
 """
 import numbers
