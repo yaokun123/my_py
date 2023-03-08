@@ -7,6 +7,7 @@ from multiprocessing import Process
 class Demo(object):
     def __init__(self):
         self.inc_process_num = 5
+        # self.fd = os.open("./readme.txt", os.O_RDONLY)
 
     def run(self):
         print "子进程 进程号%d" % os.getpid()
