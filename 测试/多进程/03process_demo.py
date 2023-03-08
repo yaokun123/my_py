@@ -8,6 +8,7 @@ from multiprocessing import Process
 class Demo(Process):
     def __init__(self):
         super(Demo, self).__init__()
+        # self.fd = os.open("./readme.txt", os.O_RDONLY)
 
     def run(self):
         print "子进程 进程号%d" % os.getpid()
