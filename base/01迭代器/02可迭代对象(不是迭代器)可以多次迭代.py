@@ -28,6 +28,7 @@ class ClassIterator(object):
 
     def next(self):
         if self.current_num >= len(self.obj.names):
+
             # for只判断了StopIteration的异常，没有判断其他异常，所以这里只能抛出StopIteration的异常
             raise StopIteration
         res = self.obj.names[self.current_num]
